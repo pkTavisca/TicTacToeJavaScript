@@ -51,9 +51,22 @@ header {
 }
 
 #resultMessage {
+    text-align: center;
+    margin-top: 5em;
     display: none;
 }
 
 #playAgainArticle {
     display: none;
+}
+
+#playAgainButton {
+    display: block;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#currentTurn {
+    margin-top: 5em;
+    text-align: center;
 }

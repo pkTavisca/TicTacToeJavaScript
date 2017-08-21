@@ -75,7 +75,6 @@ function updateCurrentMapArray(target) {
     var row = parseInt(idNo / 3);
     var column = idNo % 3;
     currentMapArray[row][column] = currentPlayer.playerNo;
-    console.log(currentMapArray);
 }
 
 function resetPage() {
