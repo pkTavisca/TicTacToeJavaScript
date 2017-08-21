@@ -52,11 +52,47 @@ function playerHasWon() {
     var n = currentPlayer.playerNo;
     var map = currentMapArray;
     for (var i = 0; i < map.length; i++) {
-        if (map[i][0] === map[i][1] && map[i][0] === map[i][2] && map[i][0] !== 0) return true;
-        if (map[0][i] === map[1][i] && map[0][i] === map[2][i] && map[0][i] !== 0) return true;
+        if (map[i][0] === map[i][1] && map[i][0] === map[i][2] && map[i][0] !== 0) {
+            var stroke = document.getElementById("redStroke").style;
+            stroke.display = "block";
+            stroke.top = i * 7 + 3.5 - 0.25 + "em";
+            stroke.left = "3em";
+            stroke.width = "16em";
+            stroke.height = "1em";
+            return true;
+        }
+        if (map[0][i] === map[1][i] && map[0][i] === map[2][i] && map[0][i] !== 0) {
+            var stroke = document.getElementById("redStroke").style;
+            stroke.display = "block";
+            stroke.top = "3em"; // 
+            stroke.left = i * 7 + 3.5 - 0.25 + "em";
+            stroke.width = "1em";
+            stroke.height = "16em";
+            return true;
+        }
     }
-    if (map[0][0] === map[1][1] && map[0][0] === map[2][2] && map[0][0] !== 0) return true;
-    if (map[0][2] === map[1][1] && map[0][2] === map[2][0] && map[0][2] !== 0) return true;
+    if (map[0][0] === map[1][1] && map[0][0] === map[2][2] && map[0][0] !== 0) {
+        var stroke = document.getElementById("redStroke").style;
+        stroke.display = "block";
+        stroke.top = "2.5em"; // 
+        stroke.left = "3em";
+        stroke.width = "23em";
+        stroke.height = "1em";
+        stroke.transform = "rotate(45deg)";
+        stroke["transform-origin"] = "top left";
+        return true;
+    }
+    if (map[0][2] === map[1][1] && map[0][2] === map[2][0] && map[0][2] !== 0) {
+        var stroke = document.getElementById("redStroke").style;
+        stroke.display = "block";
+        stroke.top = "3em"; // 
+        stroke.left = "19.5em";
+        stroke.width = "23em";
+        stroke.height = "1em";
+        stroke.transform = "rotate(135deg)";
+        stroke["transform-origin"] = "top left";
+        return true;
+    }
 }
 
 function setIdForAllTd() {
@@ -93,4 +129,6 @@ function resetPage() {
     for (var i = 0; i < elementArr.length; i++) {
         elementArr[i].className = '';
     }
+    document.getElementById("redStroke").style.display = "none";
+    document.getElementById("redStroke").style.transform = "rotate(0deg)";
 }

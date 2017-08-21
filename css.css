@@ -14,6 +14,7 @@ header {
 #tttTable {
     border-collapse: collapse;
     margin: auto;
+    position: relative;
 }
 
 #tttTable td {
@@ -69,4 +70,14 @@ header {
 #currentTurn {
     margin-top: 5em;
     text-align: center;
+}
+
+#redStroke {
+    width: 1.5em;
+    height: 1em;
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 0.7;
+    display: none;
 }
