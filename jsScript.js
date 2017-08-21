@@ -16,6 +16,7 @@ var currentMapArray = [
     [0, 0, 0]
 ];
 var hasWon = false;
+var draw = false;
 document.getElementById("playerName").innerHTML = currentPlayer.name;
 document.getElementById("playAgainButton").addEventListener("click", resetPage);
 
@@ -42,7 +43,10 @@ document.onclick = function(event) {
 
 function onPlayerWin() {
     document.getElementById("currentTurn").style.display = "none";
-    document.getElementById("resultMessage").innerHTML = currentPlayer.name + " has Won!";
+    if (!draw)
+        document.getElementById("resultMessage").innerHTML = currentPlayer.name + " has Won!";
+    else
+        document.getElementById("resultMessage").innerHTML = "The match is a draw!";
     document.getElementById("resultMessage").style.display = "block";
     document.getElementById("playAgainArticle").style.display = "block";
     hasWon = true;
@@ -93,6 +97,17 @@ function playerHasWon() {
         stroke["transform-origin"] = "top left";
         return true;
     }
+
+    draw = true;
+    for (var i = 0; i < map.length; i++) {
+        for (var j = 0; j < map[i].length; j++) {
+            if (map[i][j] === 0) {
+                draw = false;
+                break;
+            }
+        }
+    }
+    if (draw) return true;
 }
 
 function setIdForAllTd() {
