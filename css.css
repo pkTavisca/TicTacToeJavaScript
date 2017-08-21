@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    font-family: Roboto;
+}
+
+section {
+    margin: 2em 4em 4em 4em;
+}
+
+header {
+    text-align: center;
+}
+
+#tttTable {
+    border-collapse: collapse;
+    margin: auto;
+    position: relative;
+}
+
+#tttTable td {
+    border-left: 3px solid black;
+    border-top: 3px solid black;
+    width: 7em;
+    height: 7em;
+}
+
+#tttTable tr td:first-child {
+    border-left: none;
+}
+
+#tttTable tr:first-child td {
+    border-top: none;
+}
+
+.cross {
+    background: url(cross.svg) no-repeat center;
+    transition: 0.5s;
+}
+
+.circle {
+    background: url(circle.svg) no-repeat center;
+    transition: 0.2s;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('robotoFont.ttf') format('truetype');
+}
+
+#playerName {
+    font-weight: bold;
+}
+
+#resultMessage {
+    text-align: center;
+    margin-top: 5em;
+    display: none;
+}
+
+#playAgainArticle {
+    display: none;
+}
+
+#playAgainButton {
+    display: block;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#currentTurn {
+    margin-top: 5em;
+    text-align: center;
+}
+
+#redStroke {
+    width: 1.5em;
+    height: 1em;
+    background-color: red;
+    border-radius: 10px;
+    position: absolute;
+    opacity: 0.7;
+    display: none;
+}
