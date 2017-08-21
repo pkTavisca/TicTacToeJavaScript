@@ -49,3 +49,11 @@ header {
 #playerName {
     font-weight: bold;
 }
+
+#resultMessage {
+    display: none;
+}
+
+#playAgainArticle {
+    display: none;
+}
