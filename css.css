@@ -1,9 +1,10 @@
 body {
     margin: 0;
+    font-family: Roboto;
 }
 
 section {
-    margin: 4em;
+    margin: 2em 4em 4em 4em;
 }
 
 header {
@@ -16,8 +17,8 @@ header {
 }
 
 #tttTable td {
-    border-left: 2px solid black;
-    border-top: 2px solid black;
+    border-left: 3px solid black;
+    border-top: 3px solid black;
     width: 7em;
     height: 7em;
 }
@@ -28,4 +29,13 @@ header {
 
 #tttTable tr:first-child td {
     border-top: none;
+}
+
+.cross {
+    background: url(cross.svg) no-repeat center;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('robotoFont.ttf') format('truetype');
 }
