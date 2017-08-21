@@ -33,9 +33,19 @@ header {
 
 .cross {
     background: url(cross.svg) no-repeat center;
+    transition: 0.5s;
+}
+
+.circle {
+    background: url(circle.svg) no-repeat center;
+    transition: 0.2s;
 }
 
 @font-face {
     font-family: 'Roboto';
     src: url('robotoFont.ttf') format('truetype');
+}
+
+#playerName {
+    font-weight: bold;
 }
