@@ -3,5 +3,29 @@ body {
 }
 
 section {
-    margin: 0em 3em 0em 3em;
+    margin: 4em;
+}
+
+header {
+    text-align: center;
+}
+
+#tttTable {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#tttTable td {
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    width: 7em;
+    height: 7em;
+}
+
+#tttTable tr td:first-child {
+    border-left: none;
+}
+
+#tttTable tr:first-child td {
+    border-top: none;
 }
