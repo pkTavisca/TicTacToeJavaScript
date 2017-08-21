@@ -17,6 +17,7 @@ var currentMapArray = [
 ];
 var hasWon = false;
 document.getElementById("playerName").innerHTML = currentPlayer.name;
+document.getElementById("playAgainButton").addEventListener("click", resetPage);
 
 document.onclick = function(event) {
     if (hasWon) return;
@@ -75,4 +76,22 @@ function updateCurrentMapArray(target) {
     var column = idNo % 3;
     currentMapArray[row][column] = currentPlayer.playerNo;
     console.log(currentMapArray);
+}
+
+function resetPage() {
+    currentMapArray = [
+        [0, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0]
+    ];
+    currentPlayer = p1;
+    hasWon = false;
+    document.getElementById("playerName").innerHTML = currentPlayer.name;
+    document.getElementById("currentTurn").style.display = "block";
+    document.getElementById("resultMessage").style.display = "none";
+    document.getElementById("playAgainArticle").style.display = "none";
+    var elementArr = document.getElementsByTagName("td");
+    for (var i = 0; i < elementArr.length; i++) {
+        elementArr[i].className = '';
+    }
 }
