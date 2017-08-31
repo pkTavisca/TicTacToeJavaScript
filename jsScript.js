@@ -17,10 +17,10 @@ var currentMapArray = [
 ];
 var hasWon = false;
 var draw = false;
-document.getElementById("playerName").innerHTML = currentPlayer.name;
-document.getElementById("playAgainButton").addEventListener("click", resetPage);
+$("#playerName").html(currentPlayer.name);
+$("#playAgainButton").click(resetPage);
 
-document.onclick = function(event) {
+$(document).click(function (event) {
     if (hasWon) return;
     if (event.target.localName !== "td") return;
 
@@ -38,17 +38,17 @@ document.onclick = function(event) {
     if (currentPlayer === p1) currentPlayer = p2;
     else if (currentPlayer === p2) currentPlayer = p1;
 
-    document.getElementById("playerName").innerHTML = currentPlayer.name;
-}
+    $("#playerName").html(currentPlayer.name);
+});
 
 function onPlayerWin() {
-    document.getElementById("currentTurn").style.display = "none";
+    $("#currentTurn").css("display", "none");
     if (!draw)
-        document.getElementById("resultMessage").innerHTML = currentPlayer.name + " has Won!";
+        $("#resultMessage").html(currentPlayer.name + " has Won!");
     else
-        document.getElementById("resultMessage").innerHTML = "The match is a draw!";
-    document.getElementById("resultMessage").style.display = "block";
-    document.getElementById("playAgainArticle").style.display = "block";
+        $("#resultMessage").html("The match is a draw!");
+    $("#resultMessage").css("display", "block");
+    $("#playAgainArticle").css("display", "block");
     hasWon = true;
 }
 
@@ -57,44 +57,40 @@ function playerHasWon() {
     var map = currentMapArray;
     for (var i = 0; i < map.length; i++) {
         if (map[i][0] === map[i][1] && map[i][0] === map[i][2] && map[i][0] !== 0) {
-            var stroke = document.getElementById("redStroke").style;
-            stroke.display = "block";
-            stroke.top = i * 7 + 3.5 - 0.25 + "em";
-            stroke.left = "3em";
-            stroke.width = "16em";
-            stroke.height = "1em";
+            $("#redStroke").css("display", "block");
+            $("#redStroke").css("top", i * 7 + 3.5 - 0.25 + "em");
+            $("#redStroke").css("left", "3em");
+            $("#redStroke").css("width", "16em");
+            $("#redStroke").css("height", "1em");
             return true;
         }
         if (map[0][i] === map[1][i] && map[0][i] === map[2][i] && map[0][i] !== 0) {
-            var stroke = document.getElementById("redStroke").style;
-            stroke.display = "block";
-            stroke.top = "3em"; // 
-            stroke.left = i * 7 + 3.5 - 0.25 + "em";
-            stroke.width = "1em";
-            stroke.height = "16em";
+            $("#redStroke").css("display", "block");
+            $("#redStroke").css("top", "3em");
+            $("#redStroke").css("left", i * 7 + 3.5 - 0.25 + "em");
+            $("#redStroke").css("width", "1em");
+            $("#redStroke").css("height", "16em");
             return true;
         }
     }
     if (map[0][0] === map[1][1] && map[0][0] === map[2][2] && map[0][0] !== 0) {
-        var stroke = document.getElementById("redStroke").style;
-        stroke.display = "block";
-        stroke.top = "2.5em"; // 
-        stroke.left = "3em";
-        stroke.width = "23em";
-        stroke.height = "1em";
-        stroke.transform = "rotate(45deg)";
-        stroke["transform-origin"] = "top left";
+        $("#redStroke").css("display", "block");
+        $("#redStroke").css("top", "2.5em");
+        $("#redStroke").css("left", "3em");
+        $("#redStroke").css("width", "23em");
+        $("#redStroke").css("height", "1em");
+        $("#redStroke").css("transform", "rotate(45deg)");
+        $("#redStroke").css("transform-origin", "top left");
         return true;
     }
     if (map[0][2] === map[1][1] && map[0][2] === map[2][0] && map[0][2] !== 0) {
-        var stroke = document.getElementById("redStroke").style;
-        stroke.display = "block";
-        stroke.top = "3em"; // 
-        stroke.left = "19.5em";
-        stroke.width = "23em";
-        stroke.height = "1em";
-        stroke.transform = "rotate(135deg)";
-        stroke["transform-origin"] = "top left";
+        $("#redStroke").css("display", "block");
+        $("#redStroke").css("top", "3em");
+        $("#redStroke").css("left", "19.5em");
+        $("#redStroke").css("width", "23em");
+        $("#redStroke").css("height", "1em");
+        $("#redStroke").css("transform", "rotate(135deg)");
+        $("#redStroke").css("transform-origin", "top left");
         return true;
     }
 
@@ -136,14 +132,14 @@ function resetPage() {
     ];
     currentPlayer = p1;
     hasWon = false;
-    document.getElementById("playerName").innerHTML = currentPlayer.name;
-    document.getElementById("currentTurn").style.display = "block";
-    document.getElementById("resultMessage").style.display = "none";
-    document.getElementById("playAgainArticle").style.display = "none";
+    $("#playerName").html(currentPlayer.name);
+    $("#currentTurn").css("display", "block");
+    $("#resultMessage").css("display", "none");
+    $("#playAgainArticle").css("display", "none");
     var elementArr = document.getElementsByTagName("td");
     for (var i = 0; i < elementArr.length; i++) {
         elementArr[i].className = '';
     }
-    document.getElementById("redStroke").style.display = "none";
-    document.getElementById("redStroke").style.transform = "rotate(0deg)";
+    $("#redStroke").css("display", "none");
+    $("#redStroke").css("transform", "rotate(0deg)");
 }
