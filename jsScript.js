@@ -107,7 +107,7 @@ function playerHasWon() {
 }
 
 function setIdForAllTd() {
-    var elementArr = document.getElementsByTagName("td");
+    var elementArr = $("td");
     for (var i = 0; i < elementArr.length; i++) {
         elementArr[i].id = i;
     }
@@ -136,7 +136,7 @@ function resetPage() {
     $("#currentTurn").css("display", "block");
     $("#resultMessage").css("display", "none");
     $("#playAgainArticle").css("display", "none");
-    var elementArr = document.getElementsByTagName("td");
+    var elementArr = $("td");
     for (var i = 0; i < elementArr.length; i++) {
         elementArr[i].className = '';
     }
